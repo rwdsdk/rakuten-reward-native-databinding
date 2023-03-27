@@ -9,9 +9,11 @@ public class BR {
 
   public static final int portalViewModel = 3;
 
-  public static final int toolbarLeftIcon = 4;
+  public static final int title = 4;
 
-  public static final int toolbarText = 5;
+  public static final int toolbarLeftIcon = 5;
 
-  public static final int viewModel = 6;
+  public static final int toolbarText = 6;
+
+  public static final int viewModel = 7;
 }
