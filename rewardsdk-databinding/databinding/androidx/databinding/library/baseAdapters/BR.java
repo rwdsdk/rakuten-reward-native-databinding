@@ -1,21 +1,17 @@
 package androidx.databinding.library.baseAdapters;
 
 public class BR {
-  public static int _all = 0;
+  public static final int _all = 0;
 
-  public static int errorText = 1;
+  public static final int errorText = 1;
 
-  public static int infoText = 2;
+  public static final int infoText = 2;
 
-  public static int missionViewModel = 3;
+  public static final int portalViewModel = 3;
 
-  public static int parentViewModel = 4;
+  public static final int toolbarLeftIcon = 4;
 
-  public static int portalViewModel = 5;
+  public static final int toolbarText = 5;
 
-  public static int toolbarLeftIcon = 6;
-
-  public static int toolbarText = 7;
-
-  public static int viewModel = 8;
+  public static final int viewModel = 6;
 }
