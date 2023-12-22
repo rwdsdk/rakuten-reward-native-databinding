@@ -15,8 +15,8 @@ import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiSettingActivity
 import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiTabfragmentHomeBindingImpl;
 import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiTabfragmentMissionlistBindingImpl;
 import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiTabfragmentMoreBindingImpl;
-import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiTabfragmentUnclaimBindingImpl;
 import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiToolbarBindingImpl;
+import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiUnclaimInfoBindingImpl;
 import com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiUnclaimitemFragmentBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -47,9 +47,9 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_RAKUTENREWARDUITABFRAGMENTMORE = 9;
 
-  private static final int LAYOUT_RAKUTENREWARDUITABFRAGMENTUNCLAIM = 10;
+  private static final int LAYOUT_RAKUTENREWARDUITOOLBAR = 10;
 
-  private static final int LAYOUT_RAKUTENREWARDUITOOLBAR = 11;
+  private static final int LAYOUT_RAKUTENREWARDUIUNCLAIMINFO = 11;
 
   private static final int LAYOUT_RAKUTENREWARDUIUNCLAIMITEMFRAGMENT = 12;
 
@@ -65,8 +65,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_home, LAYOUT_RAKUTENREWARDUITABFRAGMENTHOME);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_missionlist, LAYOUT_RAKUTENREWARDUITABFRAGMENTMISSIONLIST);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_more, LAYOUT_RAKUTENREWARDUITABFRAGMENTMORE);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_unclaim, LAYOUT_RAKUTENREWARDUITABFRAGMENTUNCLAIM);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_toolbar, LAYOUT_RAKUTENREWARDUITOOLBAR);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_unclaim_info, LAYOUT_RAKUTENREWARDUIUNCLAIMINFO);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_unclaimitem_fragment, LAYOUT_RAKUTENREWARDUIUNCLAIMITEMFRAGMENT);
   }
 
@@ -133,17 +133,17 @@ public class DataBinderMapperImpl extends DataBinderMapper {
           }
           throw new IllegalArgumentException("The tag for rakutenreward_ui_tabfragment_more is invalid. Received: " + tag);
         }
-        case  LAYOUT_RAKUTENREWARDUITABFRAGMENTUNCLAIM: {
-          if ("layout/rakutenreward_ui_tabfragment_unclaim_0".equals(tag)) {
-            return new RakutenrewardUiTabfragmentUnclaimBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for rakutenreward_ui_tabfragment_unclaim is invalid. Received: " + tag);
-        }
         case  LAYOUT_RAKUTENREWARDUITOOLBAR: {
           if ("layout/rakutenreward_ui_toolbar_0".equals(tag)) {
             return new RakutenrewardUiToolbarBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for rakutenreward_ui_toolbar is invalid. Received: " + tag);
+        }
+        case  LAYOUT_RAKUTENREWARDUIUNCLAIMINFO: {
+          if ("layout/rakutenreward_ui_unclaim_info_0".equals(tag)) {
+            return new RakutenrewardUiUnclaimInfoBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for rakutenreward_ui_unclaim_info is invalid. Received: " + tag);
         }
         case  LAYOUT_RAKUTENREWARDUIUNCLAIMITEMFRAGMENT: {
           if ("layout/rakutenreward_ui_unclaimitem_fragment_0".equals(tag)) {
@@ -222,8 +222,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/rakutenreward_ui_tabfragment_home_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_home);
       sKeys.put("layout/rakutenreward_ui_tabfragment_missionlist_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_missionlist);
       sKeys.put("layout/rakutenreward_ui_tabfragment_more_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_more);
-      sKeys.put("layout/rakutenreward_ui_tabfragment_unclaim_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_tabfragment_unclaim);
       sKeys.put("layout/rakutenreward_ui_toolbar_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_toolbar);
+      sKeys.put("layout/rakutenreward_ui_unclaim_info_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_unclaim_info);
       sKeys.put("layout/rakutenreward_ui_unclaimitem_fragment_0", com.rakuten.gap.ads.mission_ui.R.layout.rakutenreward_ui_unclaimitem_fragment);
     }
   }

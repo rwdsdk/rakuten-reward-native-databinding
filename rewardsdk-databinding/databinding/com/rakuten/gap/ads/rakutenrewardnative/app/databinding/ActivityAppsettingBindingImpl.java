@@ -25,8 +25,6 @@ public class ActivityAppsettingBindingImpl extends ActivityAppsettingBinding  {
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
-    @NonNull
     private final android.widget.LinearLayout mboundView1;
     @Nullable
     private final com.rakuten.gap.ads.rakutenrewardnative.app.databinding.AppsettingRowTitleValueBinding mboundView11;
@@ -42,12 +40,12 @@ public class ActivityAppsettingBindingImpl extends ActivityAppsettingBinding  {
     }
     private ActivityAppsettingBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
             , (android.widget.Button) bindings[6]
             , (bindings[3] != null) ? com.rakuten.gap.ads.rakutenrewardnative.app.databinding.AppsettingRowAppcodeValueBinding.bind((android.view.View) bindings[3]) : null
             , (bindings[2] != null) ? com.rakuten.gap.ads.rakutenrewardnative.app.databinding.AppsettingRowEnvSelectorBinding.bind((android.view.View) bindings[2]) : null
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
-        this.mboundView0.setTag(null);
+        this.appSettingMain.setTag(null);
         this.mboundView1 = (android.widget.LinearLayout) bindings[1];
         this.mboundView1.setTag(null);
         this.mboundView11 = (com.rakuten.gap.ads.rakutenrewardnative.app.databinding.AppsettingRowTitleValueBinding) bindings[4];
