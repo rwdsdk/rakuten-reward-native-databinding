@@ -90,24 +90,30 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   @Override
   public List<DataBinderMapper> collectDependencies() {
-    ArrayList<DataBinderMapper> result = new ArrayList<DataBinderMapper>(2);
+    ArrayList<DataBinderMapper> result = new ArrayList<DataBinderMapper>(3);
     result.add(new androidx.databinding.library.baseAdapters.DataBinderMapperImpl());
+    result.add(new com.rakuten.gap.ads.mission_sps.DataBinderMapperImpl());
     result.add(new com.rakuten.gap.ads.mission_ui.DataBinderMapperImpl());
     return result;
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(8);
+    static final SparseArray<String> sKeys = new SparseArray<String>(13);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "errorText");
-      sKeys.put(2, "infoText");
-      sKeys.put(3, "portalViewModel");
-      sKeys.put(4, "title");
-      sKeys.put(5, "toolbarLeftIcon");
-      sKeys.put(6, "toolbarText");
-      sKeys.put(7, "viewModel");
+      sKeys.put(1, "errorMessage");
+      sKeys.put(2, "errorText");
+      sKeys.put(3, "headerTitle");
+      sKeys.put(4, "infoMessage");
+      sKeys.put(5, "infoText");
+      sKeys.put(6, "portalViewModel");
+      sKeys.put(7, "title");
+      sKeys.put(8, "toolbarLeftIcon");
+      sKeys.put(9, "toolbarText");
+      sKeys.put(10, "toolbarTitle");
+      sKeys.put(11, "unclaimItemNumber");
+      sKeys.put(12, "viewModel");
     }
   }
 

@@ -16,7 +16,8 @@ public class RakutenrewardUiTabfragmentMoreBindingImpl extends RakutenrewardUiTa
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.rakutenreward_morelist, 1);
         sViewsWithIds.put(R.id.rakutenreward_logo_layout, 2);
-        sViewsWithIds.put(R.id.rakutenreward_logo, 3);
+        sViewsWithIds.put(R.id.rakutenreward_more_presented, 3);
+        sViewsWithIds.put(R.id.rakutenreward_logo, 4);
     }
     // views
     @NonNull
@@ -27,12 +28,13 @@ public class RakutenrewardUiTabfragmentMoreBindingImpl extends RakutenrewardUiTa
     // Inverse Binding Event Handlers
 
     public RakutenrewardUiTabfragmentMoreBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private RakutenrewardUiTabfragmentMoreBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageView) bindings[3]
+            , (android.widget.ImageView) bindings[4]
             , (android.widget.LinearLayout) bindings[2]
+            , (android.widget.TextView) bindings[3]
             , (androidx.recyclerview.widget.RecyclerView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];

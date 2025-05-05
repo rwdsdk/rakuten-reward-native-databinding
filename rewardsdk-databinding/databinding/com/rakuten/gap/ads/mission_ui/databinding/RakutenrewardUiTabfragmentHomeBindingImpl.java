@@ -17,7 +17,6 @@ public class RakutenrewardUiTabfragmentHomeBindingImpl extends RakutenrewardUiTa
         sViewsWithIds.put(R.id.rakutenreward_currentpoint_fragment_component, 1);
         sViewsWithIds.put(R.id.rakutenreward_unclaim_fragment_component, 2);
         sViewsWithIds.put(R.id.adwebview, 3);
-        sViewsWithIds.put(R.id.globaladspace, 4);
     }
     // views
     @NonNull
@@ -28,12 +27,11 @@ public class RakutenrewardUiTabfragmentHomeBindingImpl extends RakutenrewardUiTa
     // Inverse Binding Event Handlers
 
     public RakutenrewardUiTabfragmentHomeBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
     }
     private RakutenrewardUiTabfragmentHomeBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.rakuten.gap.ads.mission_core.ui.web.RewardSDKCustomWebView) bindings[3]
-            , (android.widget.LinearLayout) bindings[4]
             , (androidx.fragment.app.FragmentContainerView) bindings[1]
             , (androidx.fragment.app.FragmentContainerView) bindings[2]
             );
