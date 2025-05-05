@@ -48,7 +48,7 @@ public class RakutenrewardUiUnclaimInfoBindingImpl extends RakutenrewardUiUnclai
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x4L;
+                mDirtyFlags = 0x10L;
         }
         rakutenrewardInfoMessage.invalidateAll();
         rakutenrewardErrorMessage.invalidateAll();
@@ -74,7 +74,33 @@ public class RakutenrewardUiUnclaimInfoBindingImpl extends RakutenrewardUiUnclai
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
+        if (BR.infoText == variableId) {
+            setInfoText((java.lang.String) variable);
+        }
+        else if (BR.errorText == variableId) {
+            setErrorText((java.lang.String) variable);
+        }
+        else {
+            variableSet = false;
+        }
             return variableSet;
+    }
+
+    public void setInfoText(@Nullable java.lang.String InfoText) {
+        this.mInfoText = InfoText;
+        synchronized(this) {
+            mDirtyFlags |= 0x4L;
+        }
+        notifyPropertyChanged(BR.infoText);
+        super.requestRebind();
+    }
+    public void setErrorText(@Nullable java.lang.String ErrorText) {
+        this.mErrorText = ErrorText;
+        synchronized(this) {
+            mDirtyFlags |= 0x8L;
+        }
+        notifyPropertyChanged(BR.errorText);
+        super.requestRebind();
     }
 
     @Override
@@ -120,12 +146,23 @@ public class RakutenrewardUiUnclaimInfoBindingImpl extends RakutenrewardUiUnclai
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        java.lang.String infoText = mInfoText;
+        java.lang.String errorText = mErrorText;
+
+        if ((dirtyFlags & 0x14L) != 0) {
+        }
+        if ((dirtyFlags & 0x18L) != 0) {
+        }
         // batch finished
-        if ((dirtyFlags & 0x4L) != 0) {
+        if ((dirtyFlags & 0x18L) != 0) {
             // api target 1
 
-            this.rakutenrewardErrorMessage.setErrorText(getRoot().getResources().getString(R.string.rakutenrewardsdk_unclaim_error));
-            this.rakutenrewardInfoMessage.setInfoText(getRoot().getResources().getString(R.string.rakutenrewardsdk_tab_uncliam_nounclaim));
+            this.rakutenrewardErrorMessage.setErrorText(errorText);
+        }
+        if ((dirtyFlags & 0x14L) != 0) {
+            // api target 1
+
+            this.rakutenrewardInfoMessage.setInfoText(infoText);
         }
         executeBindingsOn(rakutenrewardInfoMessage);
         executeBindingsOn(rakutenrewardErrorMessage);
@@ -137,7 +174,9 @@ public class RakutenrewardUiUnclaimInfoBindingImpl extends RakutenrewardUiUnclai
     /* flag mapping
         flag 0 (0x1L): rakutenrewardErrorMessage
         flag 1 (0x2L): rakutenrewardInfoMessage
-        flag 2 (0x3L): null
+        flag 2 (0x3L): infoText
+        flag 3 (0x4L): errorText
+        flag 4 (0x5L): null
     flag mapping end*/
     //end
 }

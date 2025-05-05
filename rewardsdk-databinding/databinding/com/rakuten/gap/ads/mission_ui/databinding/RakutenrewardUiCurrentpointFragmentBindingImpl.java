@@ -15,7 +15,11 @@ public class RakutenrewardUiCurrentpointFragmentBindingImpl extends Rakutenrewar
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.rakutenreward_point_layout, 5);
-        sViewsWithIds.put(R.id.current_month_points_label, 6);
+        sViewsWithIds.put(R.id.rakutenrewardsdk_tab_rakuten_point, 6);
+        sViewsWithIds.put(R.id.current_month_points_label_sps, 7);
+        sViewsWithIds.put(R.id.current_month_points_label_sps_mission, 8);
+        sViewsWithIds.put(R.id.current_month_points_label_sps_point, 9);
+        sViewsWithIds.put(R.id.current_month_points_label, 10);
     }
     // views
     @NonNull
@@ -28,15 +32,19 @@ public class RakutenrewardUiCurrentpointFragmentBindingImpl extends Rakutenrewar
     // Inverse Binding Event Handlers
 
     public RakutenrewardUiCurrentpointFragmentBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private RakutenrewardUiCurrentpointFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
-            , (android.widget.TextView) bindings[6]
+            , (android.widget.TextView) bindings[10]
+            , (android.widget.LinearLayout) bindings[7]
+            , (android.widget.TextView) bindings[8]
+            , (android.widget.TextView) bindings[9]
             , (android.widget.TextView) bindings[4]
             , (android.widget.LinearLayout) bindings[5]
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[6]
             );
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);

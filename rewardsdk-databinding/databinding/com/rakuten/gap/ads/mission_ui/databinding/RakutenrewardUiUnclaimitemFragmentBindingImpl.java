@@ -23,8 +23,6 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     @NonNull
     private final androidx.cardview.widget.CardView mboundView1;
-    @NonNull
-    private final android.widget.TextView mboundView2;
     // variables
     // values
     // listeners
@@ -34,17 +32,17 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
         this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
     }
     private RakutenrewardUiUnclaimitemFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
-        super(bindingComponent, root, 1
+        super(bindingComponent, root, 2
             , (android.widget.ImageView) bindings[4]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[3]
+            , (android.widget.TextView) bindings[2]
             , (android.widget.ImageView) bindings[5]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         this.mboundView1 = (androidx.cardview.widget.CardView) bindings[1];
         this.mboundView1.setTag(null);
-        this.mboundView2 = (android.widget.TextView) bindings[2];
-        this.mboundView2.setTag(null);
+        this.rakutenrewardsdkTabUnclaimtitle.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();
@@ -53,7 +51,7 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x4L;
+                mDirtyFlags = 0x8L;
         }
         requestRebind();
     }
@@ -83,7 +81,7 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
     public void setPortalViewModel(@Nullable com.rakuten.gap.ads.mission_ui.viewmodel.RewardSDKPortalViewModel PortalViewModel) {
         this.mPortalViewModel = PortalViewModel;
         synchronized(this) {
-            mDirtyFlags |= 0x2L;
+            mDirtyFlags |= 0x4L;
         }
         notifyPropertyChanged(BR.portalViewModel);
         super.requestRebind();
@@ -93,14 +91,25 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
+                return onChangePortalViewModelUnclaimMessage((androidx.databinding.ObservableField<java.lang.String>) object, fieldId);
+            case 1 :
                 return onChangePortalViewModelUnclaimItemNumber((androidx.databinding.ObservableInt) object, fieldId);
+        }
+        return false;
+    }
+    private boolean onChangePortalViewModelUnclaimMessage(androidx.databinding.ObservableField<java.lang.String> PortalViewModelUnclaimMessage, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x1L;
+            }
+            return true;
         }
         return false;
     }
     private boolean onChangePortalViewModelUnclaimItemNumber(androidx.databinding.ObservableInt PortalViewModelUnclaimItemNumber, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
-                    mDirtyFlags |= 0x1L;
+                    mDirtyFlags |= 0x2L;
             }
             return true;
         }
@@ -115,52 +124,71 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
             mDirtyFlags = 0;
         }
         com.rakuten.gap.ads.mission_ui.viewmodel.RewardSDKPortalViewModel portalViewModel = mPortalViewModel;
-        java.lang.String mboundView2AndroidStringRakutenrewardsdkTabUnclaimtitlePortalViewModelUnclaimItemNumber = null;
+        androidx.databinding.ObservableField<java.lang.String> portalViewModelUnclaimMessage = null;
         androidx.databinding.ObservableInt portalViewModelUnclaimItemNumber = null;
         boolean portalViewModelUnclaimItemNumberInt0 = false;
         int portalViewModelUnclaimItemNumberInt0ViewVISIBLEViewGONE = 0;
         int portalViewModelUnclaimItemNumberGet = 0;
+        java.lang.String portalViewModelUnclaimMessageGet = null;
 
-        if ((dirtyFlags & 0x7L) != 0) {
-
-
-
-                if (portalViewModel != null) {
-                    // read portalViewModel.unclaimItemNumber
-                    portalViewModelUnclaimItemNumber = portalViewModel.getUnclaimItemNumber();
-                }
-                updateRegistration(0, portalViewModelUnclaimItemNumber);
+        if ((dirtyFlags & 0xfL) != 0) {
 
 
-                if (portalViewModelUnclaimItemNumber != null) {
-                    // read portalViewModel.unclaimItemNumber.get()
-                    portalViewModelUnclaimItemNumberGet = portalViewModelUnclaimItemNumber.get();
-                }
+            if ((dirtyFlags & 0xdL) != 0) {
+
+                    if (portalViewModel != null) {
+                        // read portalViewModel.unclaimMessage
+                        portalViewModelUnclaimMessage = portalViewModel.getUnclaimMessage();
+                    }
+                    updateRegistration(0, portalViewModelUnclaimMessage);
 
 
-                // read @android:string/rakutenrewardsdk_tab_unclaimtitle
-                mboundView2AndroidStringRakutenrewardsdkTabUnclaimtitlePortalViewModelUnclaimItemNumber = mboundView2.getResources().getString(R.string.rakutenrewardsdk_tab_unclaimtitle, portalViewModelUnclaimItemNumberGet);
-                // read portalViewModel.unclaimItemNumber.get() > 0
-                portalViewModelUnclaimItemNumberInt0 = (portalViewModelUnclaimItemNumberGet) > (0);
-            if((dirtyFlags & 0x7L) != 0) {
-                if(portalViewModelUnclaimItemNumberInt0) {
-                        dirtyFlags |= 0x10L;
-                }
-                else {
-                        dirtyFlags |= 0x8L;
-                }
+                    if (portalViewModelUnclaimMessage != null) {
+                        // read portalViewModel.unclaimMessage.get()
+                        portalViewModelUnclaimMessageGet = portalViewModelUnclaimMessage.get();
+                    }
             }
+            if ((dirtyFlags & 0xeL) != 0) {
+
+                    if (portalViewModel != null) {
+                        // read portalViewModel.unclaimItemNumber
+                        portalViewModelUnclaimItemNumber = portalViewModel.getUnclaimItemNumber();
+                    }
+                    updateRegistration(1, portalViewModelUnclaimItemNumber);
 
 
-                // read portalViewModel.unclaimItemNumber.get() > 0 ? View.VISIBLE : View.GONE
-                portalViewModelUnclaimItemNumberInt0ViewVISIBLEViewGONE = ((portalViewModelUnclaimItemNumberInt0) ? (android.view.View.VISIBLE) : (android.view.View.GONE));
+                    if (portalViewModelUnclaimItemNumber != null) {
+                        // read portalViewModel.unclaimItemNumber.get()
+                        portalViewModelUnclaimItemNumberGet = portalViewModelUnclaimItemNumber.get();
+                    }
+
+
+                    // read portalViewModel.unclaimItemNumber.get() > 0
+                    portalViewModelUnclaimItemNumberInt0 = (portalViewModelUnclaimItemNumberGet) > (0);
+                if((dirtyFlags & 0xeL) != 0) {
+                    if(portalViewModelUnclaimItemNumberInt0) {
+                            dirtyFlags |= 0x20L;
+                    }
+                    else {
+                            dirtyFlags |= 0x10L;
+                    }
+                }
+
+
+                    // read portalViewModel.unclaimItemNumber.get() > 0 ? View.VISIBLE : View.GONE
+                    portalViewModelUnclaimItemNumberInt0ViewVISIBLEViewGONE = ((portalViewModelUnclaimItemNumberInt0) ? (android.view.View.VISIBLE) : (android.view.View.GONE));
+            }
         }
         // batch finished
-        if ((dirtyFlags & 0x7L) != 0) {
+        if ((dirtyFlags & 0xeL) != 0) {
             // api target 1
 
             this.mboundView1.setVisibility(portalViewModelUnclaimItemNumberInt0ViewVISIBLEViewGONE);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.mboundView2, mboundView2AndroidStringRakutenrewardsdkTabUnclaimtitlePortalViewModelUnclaimItemNumber);
+        }
+        if ((dirtyFlags & 0xdL) != 0) {
+            // api target 1
+
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.rakutenrewardsdkTabUnclaimtitle, portalViewModelUnclaimMessageGet);
         }
     }
     // Listener Stub Implementations
@@ -168,11 +196,12 @@ public class RakutenrewardUiUnclaimitemFragmentBindingImpl extends Rakutenreward
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): portalViewModel.unclaimItemNumber
-        flag 1 (0x2L): portalViewModel
-        flag 2 (0x3L): null
-        flag 3 (0x4L): portalViewModel.unclaimItemNumber.get() > 0 ? View.VISIBLE : View.GONE
+        flag 0 (0x1L): portalViewModel.unclaimMessage
+        flag 1 (0x2L): portalViewModel.unclaimItemNumber
+        flag 2 (0x3L): portalViewModel
+        flag 3 (0x4L): null
         flag 4 (0x5L): portalViewModel.unclaimItemNumber.get() > 0 ? View.VISIBLE : View.GONE
+        flag 5 (0x6L): portalViewModel.unclaimItemNumber.get() > 0 ? View.VISIBLE : View.GONE
     flag mapping end*/
     //end
 }

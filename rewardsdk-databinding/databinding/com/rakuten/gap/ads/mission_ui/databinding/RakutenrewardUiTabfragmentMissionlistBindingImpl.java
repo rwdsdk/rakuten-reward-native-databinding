@@ -21,7 +21,7 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.rakutenreward_currentpoint_fragment_component, 5);
         sViewsWithIds.put(R.id.rakutenreward_unclaim_fragment_component, 6);
-        sViewsWithIds.put(R.id.annotation, 7);
+        sViewsWithIds.put(R.id.rakutenreward_mission_description, 7);
         sViewsWithIds.put(R.id.rakutenreward_mission_list, 8);
     }
     // views
@@ -41,10 +41,10 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
     }
     private RakutenrewardUiTabfragmentMissionlistBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 5
-            , (android.widget.TextView) bindings[7]
             , (androidx.fragment.app.FragmentContainerView) bindings[5]
             , (com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiErrorLayoutBinding) bindings[4]
             , (com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiInfoLayoutBinding) bindings[3]
+            , (android.widget.TextView) bindings[7]
             , (androidx.recyclerview.widget.RecyclerView) bindings[8]
             , (androidx.fragment.app.FragmentContainerView) bindings[6]
             );
@@ -64,7 +64,7 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x40L;
+                mDirtyFlags = 0x100L;
         }
         rakutenrewardInfoMessage.invalidateAll();
         rakutenrewardErrorMessage.invalidateAll();
@@ -90,8 +90,14 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
-        if (BR.viewModel == variableId) {
+        if (BR.infoText == variableId) {
+            setInfoText((java.lang.String) variable);
+        }
+        else if (BR.viewModel == variableId) {
             setViewModel((com.rakuten.gap.ads.mission_ui.viewmodel.MissionViewModel) variable);
+        }
+        else if (BR.errorText == variableId) {
+            setErrorText((java.lang.String) variable);
         }
         else {
             variableSet = false;
@@ -99,12 +105,28 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
             return variableSet;
     }
 
-    public void setViewModel(@Nullable com.rakuten.gap.ads.mission_ui.viewmodel.MissionViewModel ViewModel) {
-        this.mViewModel = ViewModel;
+    public void setInfoText(@Nullable java.lang.String InfoText) {
+        this.mInfoText = InfoText;
         synchronized(this) {
             mDirtyFlags |= 0x20L;
         }
+        notifyPropertyChanged(BR.infoText);
+        super.requestRebind();
+    }
+    public void setViewModel(@Nullable com.rakuten.gap.ads.mission_ui.viewmodel.MissionViewModel ViewModel) {
+        this.mViewModel = ViewModel;
+        synchronized(this) {
+            mDirtyFlags |= 0x40L;
+        }
         notifyPropertyChanged(BR.viewModel);
+        super.requestRebind();
+    }
+    public void setErrorText(@Nullable java.lang.String ErrorText) {
+        this.mErrorText = ErrorText;
+        synchronized(this) {
+            mDirtyFlags |= 0x80L;
+        }
+        notifyPropertyChanged(BR.errorText);
         super.requestRebind();
     }
 
@@ -190,15 +212,19 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
         int viewModelMissionInfoVisibleViewVISIBLEViewGONE = 0;
         androidx.databinding.ObservableBoolean viewModelMissionInfoVisible = null;
         boolean viewModelMissionSuccessGet = false;
+        java.lang.String infoText = mInfoText;
         int viewModelMissionSuccessViewGONEViewVISIBLE = 0;
         androidx.databinding.ObservableBoolean viewModelMissionSuccess = null;
         boolean viewModelMissionInfoVisibleGet = false;
         com.rakuten.gap.ads.mission_ui.viewmodel.MissionViewModel viewModel = mViewModel;
+        java.lang.String errorText = mErrorText;
 
-        if ((dirtyFlags & 0x6bL) != 0) {
+        if ((dirtyFlags & 0x120L) != 0) {
+        }
+        if ((dirtyFlags & 0x14bL) != 0) {
 
 
-            if ((dirtyFlags & 0x61L) != 0) {
+            if ((dirtyFlags & 0x141L) != 0) {
 
                     if (viewModel != null) {
                         // read viewModel.dividerLineVisible
@@ -211,12 +237,12 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                         // read viewModel.dividerLineVisible.get()
                         viewModelDividerLineVisibleGet = viewModelDividerLineVisible.get();
                     }
-                if((dirtyFlags & 0x61L) != 0) {
+                if((dirtyFlags & 0x141L) != 0) {
                     if(viewModelDividerLineVisibleGet) {
-                            dirtyFlags |= 0x100L;
+                            dirtyFlags |= 0x400L;
                     }
                     else {
-                            dirtyFlags |= 0x80L;
+                            dirtyFlags |= 0x200L;
                     }
                 }
 
@@ -224,7 +250,7 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                     // read viewModel.dividerLineVisible.get() ? View.VISIBLE : View.GONE
                     viewModelDividerLineVisibleViewVISIBLEViewGONE = ((viewModelDividerLineVisibleGet) ? (android.view.View.VISIBLE) : (android.view.View.GONE));
             }
-            if ((dirtyFlags & 0x62L) != 0) {
+            if ((dirtyFlags & 0x142L) != 0) {
 
                     if (viewModel != null) {
                         // read viewModel.missionInfoVisible
@@ -237,12 +263,12 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                         // read viewModel.missionInfoVisible.get()
                         viewModelMissionInfoVisibleGet = viewModelMissionInfoVisible.get();
                     }
-                if((dirtyFlags & 0x62L) != 0) {
+                if((dirtyFlags & 0x142L) != 0) {
                     if(viewModelMissionInfoVisibleGet) {
-                            dirtyFlags |= 0x400L;
+                            dirtyFlags |= 0x1000L;
                     }
                     else {
-                            dirtyFlags |= 0x200L;
+                            dirtyFlags |= 0x800L;
                     }
                 }
 
@@ -250,7 +276,7 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                     // read viewModel.missionInfoVisible.get() ? View.VISIBLE : View.GONE
                     viewModelMissionInfoVisibleViewVISIBLEViewGONE = ((viewModelMissionInfoVisibleGet) ? (android.view.View.VISIBLE) : (android.view.View.GONE));
             }
-            if ((dirtyFlags & 0x68L) != 0) {
+            if ((dirtyFlags & 0x148L) != 0) {
 
                     if (viewModel != null) {
                         // read viewModel.missionSuccess
@@ -263,12 +289,12 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                         // read viewModel.missionSuccess.get()
                         viewModelMissionSuccessGet = viewModelMissionSuccess.get();
                     }
-                if((dirtyFlags & 0x68L) != 0) {
+                if((dirtyFlags & 0x148L) != 0) {
                     if(viewModelMissionSuccessGet) {
-                            dirtyFlags |= 0x1000L;
+                            dirtyFlags |= 0x4000L;
                     }
                     else {
-                            dirtyFlags |= 0x800L;
+                            dirtyFlags |= 0x2000L;
                     }
                 }
 
@@ -277,27 +303,33 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
                     viewModelMissionSuccessViewGONEViewVISIBLE = ((viewModelMissionSuccessGet) ? (android.view.View.GONE) : (android.view.View.VISIBLE));
             }
         }
+        if ((dirtyFlags & 0x180L) != 0) {
+        }
         // batch finished
-        if ((dirtyFlags & 0x61L) != 0) {
+        if ((dirtyFlags & 0x141L) != 0) {
             // api target 1
 
             this.mboundView2.setVisibility(viewModelDividerLineVisibleViewVISIBLEViewGONE);
         }
-        if ((dirtyFlags & 0x68L) != 0) {
+        if ((dirtyFlags & 0x148L) != 0) {
             // api target 1
 
             this.rakutenrewardErrorMessage.getRoot().setVisibility(viewModelMissionSuccessViewGONEViewVISIBLE);
         }
-        if ((dirtyFlags & 0x40L) != 0) {
+        if ((dirtyFlags & 0x180L) != 0) {
             // api target 1
 
-            this.rakutenrewardErrorMessage.setErrorText(getRoot().getResources().getString(R.string.rakutenrewardsdk_tab_mission_error));
-            this.rakutenrewardInfoMessage.setInfoText(getRoot().getResources().getString(R.string.rakutenrewardsdk_tab_mission_nomission));
+            this.rakutenrewardErrorMessage.setErrorText(errorText);
         }
-        if ((dirtyFlags & 0x62L) != 0) {
+        if ((dirtyFlags & 0x142L) != 0) {
             // api target 1
 
             this.rakutenrewardInfoMessage.getRoot().setVisibility(viewModelMissionInfoVisibleViewVISIBLEViewGONE);
+        }
+        if ((dirtyFlags & 0x120L) != 0) {
+            // api target 1
+
+            this.rakutenrewardInfoMessage.setInfoText(infoText);
         }
         executeBindingsOn(rakutenrewardInfoMessage);
         executeBindingsOn(rakutenrewardErrorMessage);
@@ -312,14 +344,16 @@ public class RakutenrewardUiTabfragmentMissionlistBindingImpl extends Rakutenrew
         flag 2 (0x3L): rakutenrewardInfoMessage
         flag 3 (0x4L): viewModel.missionSuccess
         flag 4 (0x5L): rakutenrewardErrorMessage
-        flag 5 (0x6L): viewModel
-        flag 6 (0x7L): null
-        flag 7 (0x8L): viewModel.dividerLineVisible.get() ? View.VISIBLE : View.GONE
-        flag 8 (0x9L): viewModel.dividerLineVisible.get() ? View.VISIBLE : View.GONE
-        flag 9 (0xaL): viewModel.missionInfoVisible.get() ? View.VISIBLE : View.GONE
-        flag 10 (0xbL): viewModel.missionInfoVisible.get() ? View.VISIBLE : View.GONE
-        flag 11 (0xcL): viewModel.missionSuccess.get() ? View.GONE : View.VISIBLE
-        flag 12 (0xdL): viewModel.missionSuccess.get() ? View.GONE : View.VISIBLE
+        flag 5 (0x6L): infoText
+        flag 6 (0x7L): viewModel
+        flag 7 (0x8L): errorText
+        flag 8 (0x9L): null
+        flag 9 (0xaL): viewModel.dividerLineVisible.get() ? View.VISIBLE : View.GONE
+        flag 10 (0xbL): viewModel.dividerLineVisible.get() ? View.VISIBLE : View.GONE
+        flag 11 (0xcL): viewModel.missionInfoVisible.get() ? View.VISIBLE : View.GONE
+        flag 12 (0xdL): viewModel.missionInfoVisible.get() ? View.VISIBLE : View.GONE
+        flag 13 (0xeL): viewModel.missionSuccess.get() ? View.GONE : View.VISIBLE
+        flag 14 (0xfL): viewModel.missionSuccess.get() ? View.GONE : View.VISIBLE
     flag mapping end*/
     //end
 }

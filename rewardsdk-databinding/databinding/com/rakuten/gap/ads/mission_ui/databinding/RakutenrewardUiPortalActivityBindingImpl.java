@@ -24,9 +24,9 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final androidx.coordinatorlayout.widget.CoordinatorLayout mboundView0;
     @NonNull
-    private final android.widget.LinearLayout mboundView1;
+    private final com.google.android.material.appbar.AppBarLayout mboundView1;
     // variables
     // values
     // listeners
@@ -42,9 +42,9 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
             , (com.rakuten.gap.ads.mission_ui.databinding.RakutenrewardUiToolbarBinding) bindings[2]
             , (com.google.android.material.tabs.TabLayout) bindings[3]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.mboundView0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0];
         this.mboundView0.setTag(null);
-        this.mboundView1 = (android.widget.LinearLayout) bindings[1];
+        this.mboundView1 = (com.google.android.material.appbar.AppBarLayout) bindings[1];
         this.mboundView1.setTag(null);
         setContainedBinding(this.rakutenrewardToobar);
         setRootTag(root);
@@ -55,7 +55,7 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x2L;
+                mDirtyFlags = 0x4L;
         }
         rakutenrewardToobar.invalidateAll();
         requestRebind();
@@ -77,7 +77,22 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
+        if (BR.headerTitle == variableId) {
+            setHeaderTitle((java.lang.String) variable);
+        }
+        else {
+            variableSet = false;
+        }
             return variableSet;
+    }
+
+    public void setHeaderTitle(@Nullable java.lang.String HeaderTitle) {
+        this.mHeaderTitle = HeaderTitle;
+        synchronized(this) {
+            mDirtyFlags |= 0x2L;
+        }
+        notifyPropertyChanged(BR.headerTitle);
+        super.requestRebind();
     }
 
     @Override
@@ -111,12 +126,20 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        java.lang.String headerTitle = mHeaderTitle;
+
+        if ((dirtyFlags & 0x6L) != 0) {
+        }
         // batch finished
-        if ((dirtyFlags & 0x2L) != 0) {
+        if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
             this.rakutenrewardToobar.setToolbarLeftIcon(androidx.appcompat.content.res.AppCompatResources.getDrawable(getRoot().getContext(), R.drawable.rakutenreward_close_grey));
-            this.rakutenrewardToobar.setToolbarText(getRoot().getResources().getString(R.string.rakutenrewardsdk_tab_home));
+        }
+        if ((dirtyFlags & 0x6L) != 0) {
+            // api target 1
+
+            this.rakutenrewardToobar.setToolbarText(headerTitle);
         }
         executeBindingsOn(rakutenrewardToobar);
     }
@@ -126,7 +149,8 @@ public class RakutenrewardUiPortalActivityBindingImpl extends RakutenrewardUiPor
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
         flag 0 (0x1L): rakutenrewardToobar
-        flag 1 (0x2L): null
+        flag 1 (0x2L): headerTitle
+        flag 2 (0x3L): null
     flag mapping end*/
     //end
 }
